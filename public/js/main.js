@@ -1,27 +1,27 @@
 const deleteBtn = document.querySelectorAll('.del')
-const todoItem = document.querySelectorAll('span.not')
-const todoComplete = document.querySelectorAll('span.completed')
+const logItem = document.querySelectorAll('span.not')
+const logComplete = document.querySelectorAll('span.completed')
 
 Array.from(deleteBtn).forEach((el)=>{
-    el.addEventListener('click', deleteTodo)
+    el.addEventListener('click', deleteLog)
 })
 
-Array.from(todoItem).forEach((el)=>{
+Array.from(logItem).forEach((el)=>{
     el.addEventListener('click', markComplete)
 })
 
-Array.from(todoComplete).forEach((el)=>{
+Array.from(logComplete).forEach((el)=>{
     el.addEventListener('click', markIncomplete)
 })
 
-async function deleteTodo(){
-    const todoId = this.parentNode.dataset.id
+async function deleteLog(){
+    const logId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/deleteTodo', {
+        const response = await fetch('logs/deleteLog', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'logIdFromJSFile': logId
             })
         })
         const data = await response.json()
@@ -33,13 +33,13 @@ async function deleteTodo(){
 }
 
 async function markComplete(){
-    const todoId = this.parentNode.dataset.id
+    const logId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/markComplete', {
+        const response = await fetch('logs/markComplete', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'logIdFromJSFile': logId
             })
         })
         const data = await response.json()
@@ -51,13 +51,13 @@ async function markComplete(){
 }
 
 async function markIncomplete(){
-    const todoId = this.parentNode.dataset.id
+    const logId = this.parentNode.dataset.id
     try{
-        const response = await fetch('todos/markIncomplete', {
+        const response = await fetch('logs/markIncomplete', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'logIdFromJSFile': logId
             })
         })
         const data = await response.json()
