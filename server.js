@@ -8,7 +8,7 @@ const flash = require('express-flash')
 const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
-const logRoutes = require('./routes/logs') // For the /logs route. This file holds all of the routes for anything on logs. Requires us to go to the routes folder and get the logs file.
+const logRoutes = require('./routes/medlogs') // For the /medlogs route. This file holds all of the routes for anything on logs. Requires us to go to the routes folder and get the logs file.
 
 require('dotenv').config({path: './config/.env'})
 
@@ -40,7 +40,7 @@ app.use(flash())
 
 // These lines handle the request that comes in from the client. They logged in, signed up, or typed it in directly - these lines hear the request and send the user to the correct router.
 app.use('/', mainRoutes) // Was the request on the main route? (login, sign up, homepage)
-app.use('/logs', logRoutes) // Or was the request on the logs route? 
+app.use('/medlogs', logRoutes) // Or was the request on the medLogs route? 
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
