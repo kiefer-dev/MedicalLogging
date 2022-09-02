@@ -9,7 +9,6 @@ const UserSchema = new mongoose.Schema({
 
 
 // Password hash middleware.
- 
  UserSchema.pre('save', function save(next) {
   const user = this
   if (!user.isModified('password')) { return next() }
@@ -25,7 +24,6 @@ const UserSchema = new mongoose.Schema({
 
 
 // Helper method for validating user's password.
-
 UserSchema.methods.comparePassword = function comparePassword(candidatePassword, cb) {
   bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
     cb(err, isMatch)
