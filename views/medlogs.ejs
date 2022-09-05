@@ -12,7 +12,9 @@
     <ul>
     <% medLogs.forEach( el => { %>
             <li class='medLogItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.weight %> <%= el.systolic %>/<%= el.diastolic %></span>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'> <%= el.date.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) %> </span><br/>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'>Weight: <%= el.weight %> lbs</span><br/>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'>Blood Pressure: <%= el.systolic %>/<%= el.diastolic %></span>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
