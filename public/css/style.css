@@ -2,9 +2,15 @@ h1{
     color: red;
 }
 .completed{
-    text-decoration: line-through;
-    color: gray;
+    /* text-decoration: line-through; */
+    color: rgb(155, 155, 155);
 }
 .not{
+    /* text-decoration: underline; */
+}
+
+.date {
+    text-transform: capitalize;
     text-decoration: underline;
+    font-weight: bold;
 }
