@@ -12,16 +12,19 @@
     <ul>
     <% medLogs.forEach( el => { %>
             <li class='medLogItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.medLog %></span>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.weight %> <%= el.systolic %>/<%= el.diastolic %></span>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <h2><%= user.userName %> has <%= left %> unprocessed medical logs.</h2>
 
     <form action="/medlogs/createMedLog" method='POST'>
-        <input type="text" placeholder="Enter Medical Log Item" name='medLogItem'>
+        <input type="number" placeholder="Enter Current Weight (lbs)" name='weightInput'>
+        <input type="number" placeholder="Enter Current Systolic Pressure" name='systolicInput'>
+        <input type="number" placeholder="Enter Current Diastolic Pressure" name='diastolicInput'>
+
         <input type="submit">
     </form>
 

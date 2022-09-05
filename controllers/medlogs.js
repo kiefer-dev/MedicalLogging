@@ -1,4 +1,5 @@
 const MedLog = require('../models/MedLog') // In order for the controller to get info from the database, we have to go through the MODEL!!
+const currentDate = new Date();
 
 module.exports = {
     getMedLogs: async (req,res)=>{
@@ -13,7 +14,7 @@ module.exports = {
     },
     createMedLog: async (req, res)=>{
         try{
-            await MedLog.create({medLog: req.body.medLogItem, completed: false, userId: req.user.id}) // Gives the medlog a userId property of the logged-in user's ID!
+            await MedLog.create({date: currentDate, weight: req.body.weightInput, systolic: req.body.systolicInput, diastolic: req.body.diastolicInput, completed: false, userId: req.user.id}) // Gives the medlog a userId property of the logged-in user's ID!
             console.log('Medical Log has been added!')
             res.redirect('/medlogs')
         }catch(err){

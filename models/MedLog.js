@@ -2,8 +2,20 @@ const mongoose = require('mongoose') // Mongoose handles all the stuff we have t
 
 // Create a structure for all of the logs that will be created.
 const MedLogSchema = new mongoose.Schema({
-  medLog: {
-    type: String,
+  date: {
+    type: Date,
+    required: true,
+  },
+  weight: {
+    type: Number,
+    required: true,
+  },
+  systolic: {
+    type: Number,
+    required: true,
+  },
+  diastolic: {
+    type: Number,
     required: true,
   },
   completed: {

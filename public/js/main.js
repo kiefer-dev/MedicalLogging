@@ -57,7 +57,7 @@ async function markIncomplete(){
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'medLogIdFromJSFile': logId
+                'medLogIdFromJSFile': medLogId
             })
         })
         const data = await response.json()
