@@ -10,12 +10,29 @@
 </head>
 <body>
     <h1>Medical Logs</h1>
+    <form action="/medlogs/createMedLog" method='POST' class="logInputForm">
+        <h2>Enter a new daily reading:</h2>
+        <p>Today is <span class="date"><%= new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) %></span></p>
+        <div>
+            <label for="weightInput">Current Weight: </label>
+            <input type="number" placeholder="lbs" name='weightInput' class="numInput">
+        </div>
+        <div>
+            <label for="systolicInput">Blood Pressure: </label>
+            <input type="number" placeholder="Systolic" name='systolicInput' class="numInput">
+            <span>/</span>
+            <input type="number" placeholder="Diastolic" name='diastolicInput' class="numInput">
+        </div>
+        <input type="submit">
+    </form>
+
+
     <ul>
     <% medLogs.forEach( el => { %>
             <li class='medLogItem' data-id='<%=el._id%>'>
                 <span class='date <%= el.completed === true ? 'completed' : 'not'%>'> <%= el.date.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) %> </span>
-                <span class='del fa fa-trash'></span><br/>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'>Weight: <%= el.weight %> lbs</span><br/>
+                <span class='del fa fa-trash'></span>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'>Weight: <%= el.weight %> lbs</span>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'>Blood Pressure: <%= el.systolic %>/<%= el.diastolic %></span>
             </li>
     <% }) %>    
@@ -23,13 +40,6 @@
 
     <h2><%= user.userName %> has <%= left %> unprocessed medical logs.</h2>
 
-    <form action="/medlogs/createMedLog" method='POST'>
-        <input type="number" placeholder="Enter Current Weight (lbs)" name='weightInput'>
-        <input type="number" placeholder="Enter Current Systolic Pressure" name='systolicInput'>
-        <input type="number" placeholder="Enter Current Diastolic Pressure" name='diastolicInput'>
-
-        <input type="submit">
-    </form>
 
     <a href="/logout">Logout</a>
 

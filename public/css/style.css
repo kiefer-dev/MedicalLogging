@@ -2,7 +2,6 @@ h1{
     color: red;
 }
 .completed{
-    /* text-decoration: line-through; */
     color: rgb(155, 155, 155);
 }
 .not{
@@ -13,4 +12,21 @@ h1{
     text-transform: capitalize;
     text-decoration: underline;
     font-weight: bold;
+}
+
+.medLogItem span {
+    display: block;
+}
+.medLogItem .date,
+.medLogItem .del {
+    display: inline;
+}
+
+
+.logInputForm div {
+    display: block;
+    margin: 15px;
+}
+.numInput {
+    width: 70px;
 }
