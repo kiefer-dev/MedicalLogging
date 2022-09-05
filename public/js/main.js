@@ -1,6 +1,6 @@
 const deleteBtn = document.querySelectorAll('.del')
-const medLogItem = document.querySelectorAll('span.not')
-const medLogComplete = document.querySelectorAll('span.completed')
+const medLogItem = document.querySelectorAll('td.not')
+const medLogComplete = document.querySelectorAll('td.completed')
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteMedLog)

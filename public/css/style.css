@@ -14,13 +14,39 @@ h1{
     font-weight: bold;
 }
 
-.medLogItem span {
+
+table {
+    table-layout: fixed;
+    width: 50%;
+    border-collapse: collapse;
+    border: 3px solid purple;
+}
+thead th:nth-child(1) {
+    width: 50%;
+} 
+thead th:nth-child(2) {
+    width: 20%;
+}
+thead th:nth-child(3) {
+    width: 20%;
+}
+thead th:nth-child(4) {
+    width: 10%;
+}
+th, td {
+    padding: 15px;
+}
+tr {
+    border: 1px solid black;
+}
+
+/* .medLogItem span {
     display: block;
 }
 .medLogItem .date,
 .medLogItem .del {
     display: inline;
-}
+} */
 
 
 .logInputForm div {

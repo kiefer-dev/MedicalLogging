@@ -27,16 +27,25 @@
     </form>
 
 
-    <ul>
-    <% medLogs.slice().reverse().forEach( el => { %>
-            <li class='medLogItem' data-id='<%=el._id%>'>
-                <span class='date <%= el.completed === true ? 'completed' : 'not'%>'> <%= el.date.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) %> </span>
-                <span class='del fa fa-trash'></span>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'>Weight: <%= el.weight %> lbs</span>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'>Blood Pressure: <%= el.systolic %>/<%= el.diastolic %></span>
-            </li>
-    <% }) %>    
-    </ul>
+    <table>
+        <thead>
+            <th>Date</th>
+            <th>Weight</th>
+            <th>Blood Pressure</th>
+            <th></th>
+        </thead>
+        <% medLogs.slice().reverse().forEach(el => { %>
+            <tr class='medLogItem' data-id='<%=el._id%>'>
+                <td class='date <%= el.completed === true ? 'completed' : 'not'%>'> <%= el.date.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) %> </td>
+                <td class='<%= el.completed === true ? 'completed' : 'not'%>'> <%= el.weight %> lbs</td>
+                <td class='<%= el.completed === true ? 'completed' : 'not'%>'> <%= el.systolic %>/<%= el.diastolic %> </td>
+                <td class='del fa fa-trash'></td>
+            </tr>
+        <% }) %>
+    </table>
+
+    
+    
 
     <h2><%= user.userName %> has <%= left %> unprocessed medical logs.</h2>
 
