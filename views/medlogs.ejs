@@ -47,7 +47,7 @@
                     <td class='date <%= el.completed === true ? 'completed' : 'not'%>'> <%= el.date.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) %> </td>
                     <td class='<%= el.completed === true ? 'completed' : 'not'%>'> <%= el.weight %> lbs</td>
                     <td class='<%= el.completed === true ? 'completed' : 'not'%>'> <%= el.systolic %>/<%= el.diastolic %> </td>
-                    <td class='del fa fa-trash <%= el.completed === true ? 'completed' : 'not'%>'></td>
+                    <td class="del"><span class='fa fa-trash'></span></td>
                 </tr>
             <% }) %>
         </table>
