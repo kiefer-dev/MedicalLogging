@@ -9,49 +9,51 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Medical Logs</h1>
-    <form action="/medlogs/createMedLog" method='POST' class="logInputForm">
-        <h2>Enter a new daily reading:</h2>
-        <p>Today is <span class="date"><%= new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) %></span></p>
-        <div>
-            <label for="weightInput">Current Weight: </label>
-            <input type="number" placeholder="lbs" name='weightInput' class="numInput">
-        </div>
-        <div>
-            <label for="systolicInput">Blood Pressure: </label>
-            <input type="number" placeholder="Systolic" name='systolicInput' class="numInput">
-            <span>/</span>
-            <input type="number" placeholder="Diastolic" name='diastolicInput' class="numInput">
-        </div>
-        <input type="submit">
-    </form>
+    <header>
+        <a href="/logout">Logout</a>
+        <h1>Medical Logs for <%= user.userName %></h1>
+    </header>
 
-
-    <table>
-        <thead>
-            <th>Date</th>
-            <th>Weight</th>
-            <th>Blood Pressure</th>
-            <th></th>
-        </thead>
-        <% medLogs.slice().reverse().forEach(el => { %>
-            <tr class='medLogItem' data-id='<%=el._id%>'>
-                <td class='date <%= el.completed === true ? 'completed' : 'not'%>'> <%= el.date.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) %> </td>
-                <td class='<%= el.completed === true ? 'completed' : 'not'%>'> <%= el.weight %> lbs</td>
-                <td class='<%= el.completed === true ? 'completed' : 'not'%>'> <%= el.systolic %>/<%= el.diastolic %> </td>
-                <td class='del fa fa-trash'></td>
-            </tr>
-        <% }) %>
-    </table>
-
+    <!-- MedLog Entry Area -->
+    <section class="medLogEntryArea">
+        <form action="/medlogs/createMedLog" method='POST' class="logInputForm">
+            <h3>Enter a new daily reading:</h3>
+            <p>Today is <span class="date"><%= new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) %></span></p>
+            <div>
+                <label for="weightInput">Current Weight: </label>
+                <input type="number" placeholder="lbs" name='weightInput' class="numInput">
+            </div>
+            <div>
+                <label for="systolicInput">Blood Pressure: </label>
+                <input type="number" placeholder="Systolic" name='systolicInput' class="numInput">
+                <span>/</span>
+                <input type="number" placeholder="Diastolic" name='diastolicInput' class="numInput">
+            </div>
+            <input type="submit">
+        </form>
+    </section>
     
+    <!-- MedLog Display Area -->
+    <section class="medLogDisplayArea">
+        <table>
+            <thead>
+                <th>Date</th>
+                <th>Weight</th>
+                <th>Blood Pressure</th>
+                <th></th>
+            </thead>
+            <% medLogs.slice().reverse().forEach(el => { %>
+                <tr class='medLogItem' data-id='<%=el._id%>'>
+                    <td class='date <%= el.completed === true ? 'completed' : 'not'%>'> <%= el.date.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) %> </td>
+                    <td class='<%= el.completed === true ? 'completed' : 'not'%>'> <%= el.weight %> lbs</td>
+                    <td class='<%= el.completed === true ? 'completed' : 'not'%>'> <%= el.systolic %>/<%= el.diastolic %> </td>
+                    <td class='del fa fa-trash <%= el.completed === true ? 'completed' : 'not'%>'></td>
+                </tr>
+            <% }) %>
+        </table>
+        <h4><%= user.userName %> has <%= left %> unprocessed medical logs.</h4>
+    </section>
     
-
-    <h2><%= user.userName %> has <%= left %> unprocessed medical logs.</h2>
-
-
-    <a href="/logout">Logout</a>
-
     <script src="js/main.js"></script>
 </body>
 </html>

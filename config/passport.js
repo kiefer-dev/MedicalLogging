@@ -7,7 +7,7 @@ module.exports = function (passport) {
     User.findOne({ email: email.toLowerCase() }, (err, user) => {
       if (err) { return done(err) }
       if (!user) {
-        return done(null, false, { msg: `Email ${email} not found.` })
+        return done(null, false, { msg: `Account with email '${email}' not found!` })
       }
       if (!user.password) {
         return done(null, false, { msg: 'Your account was registered using a sign-in provider. To enable password login, sign in using a provider, and then set a password under your user profile.' })
