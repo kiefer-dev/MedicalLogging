@@ -1,0 +1,112 @@
+/* ---------------------------------------------------- */
+/* LAYOUT */
+body {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 15px;
+}
+
+header {
+    border: 1px solid gray;
+    margin-bottom: 0px;
+    width: 100%;
+}
+
+header h1 {
+    text-align: center;
+}
+
+
+/* ---------------------------------------------------- */
+/* GENERAL STYLES */
+h1{
+    color: rgb(52, 74, 202);
+}
+
+.date {
+    text-transform: capitalize;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.medLogEntryArea,
+.medLogDisplayArea {
+    margin: 15px 0;
+    width: 50%;
+    max-width: 420px;
+
+}
+
+
+/* ---------------------------------------------------- */
+/* MEDLOG ENTRY STYLING */
+form h3 {
+    margin-top: 0;
+}
+form {
+    border: 3px solid rgb(52, 74, 202);
+    padding: 15px;
+}
+.logInputForm div {
+    display: block;
+    margin: 15px;
+}
+.numInput {
+    width: 70px;
+}
+
+
+
+/* ---------------------------------------------------- */
+/* MEDLOG TABLE STYLING */
+table {
+    table-layout: fixed;
+    /* width: 50%;
+    max-width: 400px; */
+    border-collapse: collapse;
+    border: 3px solid black;
+}
+thead {
+    background-color: rgb(52, 74, 202);
+    color: white;
+    text-align: left;
+    font-size: 1.2rem;
+}
+thead th:nth-child(1) {
+    width: 50%;
+} 
+thead th:nth-child(2) {
+    width: 20%;
+}
+thead th:nth-child(3) {
+    width: 20%;
+}
+thead th:nth-child(4) {
+    width: 10%;
+}
+th, td {
+    padding: 15px;
+}
+tr {
+    border: 1px solid black;
+}
+tr td:last-child {
+    border-left: 1px solid black;
+}
+
+.medLogDisplayArea h4 {
+    margin-top: 10px;
+}
+
+.completed{
+    color: gray;
+    background-color: rgb(230, 255, 230);
+    text-decoration: line-through;
+}
+.not {
+    font-weight: bold;
+}
+.del {
+    color: black;
+}
