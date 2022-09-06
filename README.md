@@ -12,7 +12,6 @@ A simple full-stack web application that allows users to create an account, add 
 My grandfather was supposed to keep a daily log of his weight and blood pressure readings to report to his doctor for their weekly checkups. He had a hard time keeping track of a physical journal to write in, so I decided to whip up this super simple web app that he could use to keep track of his daily logs. The application uses Passport.js for authentication, MongoDB and Mongoose to store user/session/medical log data, and Express to manage the server-side of things. The app utilizes the Model/View/Controller architectural framework to keep the working parts of the program separate so that adding/swapping out features is easy.
 
 ## Optimizations
-*(optional)*
 
 Things I'd like to improve on in the future include: a more elegant/aesthetically-pleasing front-end layout, a distinction between patient/doctor accounts so that the doctor can mark logs as completed and see the logs for every patient user.
 
