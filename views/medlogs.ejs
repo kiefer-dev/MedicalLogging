@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= user.userName %>'s Logs</title>
+    <title><%= user.userName || user.email %>'s Logs</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/medlogs.css">
 </head>
 <body>
     <header>
         <a href="/logout">Logout</a>
-        <h1>Medical Logs for <%= user.userName %></h1>
+        <h1>Medical Logs for <%= user.userName || user.email %></h1>
     </header>
 
     <!-- MedLog Entry Area -->
@@ -51,7 +51,7 @@
                 </tr>
             <% }) %>
         </table>
-        <h4><%= user.userName %> has <%= left %> unprocessed medical logs.</h4>
+        <h4><%= user.userName || user.email %> has <%= left %> unprocessed medical logs.</h4>
     </section>
     
     <script src="js/main.js"></script>
