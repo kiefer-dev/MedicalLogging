@@ -3,7 +3,7 @@ A simple full-stack web application that allows users to create an account, add 
 
 **Link to project:** http://recruiters-love-seeing-live-demos.com/
 
-![alt tag](https://github.com/kiefer-dev/medical-logging/blob/main/Logging%20Page.png?raw=true)
+![.gif to show how to mark-off medical logs in web app](https://github.com/kiefer-dev/medical-logging/blob/main/public/images/medicalloggingreadme.gif?raw=true)
 
 ## How It's Made:
 
