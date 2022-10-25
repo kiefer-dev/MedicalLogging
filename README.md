@@ -1,7 +1,7 @@
 # Medical Logging Full-Stack Web App
 A simple full-stack web application that allows users to create an account, add daily weight/blood pressure readings to their personal log, delete readings, and mark them as processed by their doctor.
 
-**Link to project:** https://medical-logging-production.up.railway.app/
+**Link to project:** https://medicallogging.cyclic.app/
 
 ![.gif to show how to mark-off medical logs in web app](https://github.com/kiefer-dev/medical-logging/blob/main/public/images/medicalloggingreadme.gif?raw=true)
 
